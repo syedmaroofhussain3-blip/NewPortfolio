@@ -24,8 +24,8 @@ const Index = () => {
     <div className="relative">
       <AnimeNavBar items={navItems} defaultActive="Home" />
 
-      {/* Hero 3D Background - Fixed */}
-      <div className="fixed inset-0 h-screen w-full bg-background overflow-hidden z-0">
+      {/* Hero 3D Background - Fixed, always visible & interactive */}
+      <div className="fixed inset-0 w-full h-full bg-background overflow-hidden z-0">
         <SplineScene
           scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
           className="w-full h-full"
@@ -60,7 +60,7 @@ const Index = () => {
       </section>
 
       {/* Scrollable content */}
-      <div className="relative z-10">
+      <div className="relative z-10 pointer-events-none [&>*]:pointer-events-auto">
         <AboutSection />
         <SkillsSection />
         <ProjectsSection />
