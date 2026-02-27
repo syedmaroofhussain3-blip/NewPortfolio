@@ -22,6 +22,7 @@ export function AnimeNavBar({ items, className, defaultActive = "Home" }: NavBar
   const [hoveredTab, setHoveredTab] = useState<string | null>(null)
   const [activeTab, setActiveTab] = useState<string>(defaultActive)
   const [isMobile, setIsMobile] = useState(false)
+  const isClickScrolling = React.useRef(false)
 
   useEffect(() => {
     setMounted(true)
@@ -35,6 +36,34 @@ export function AnimeNavBar({ items, className, defaultActive = "Home" }: NavBar
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])
+
+  // Scroll-based active section detection
+  useEffect(() => {
+    const sectionIds = items.map((item) => item.url.replace("#", ""))
+    const sectionNameMap = Object.fromEntries(
+      items.map((item) => [item.url.replace("#", ""), item.name])
+    )
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (isClickScrolling.current) return
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const name = sectionNameMap[entry.target.id]
+            if (name) setActiveTab(name)
+          }
+        })
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    )
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+
+    return () => observer.disconnect()
+  }, [items])
 
   if (!mounted) return null
 
@@ -63,10 +92,12 @@ export function AnimeNavBar({ items, className, defaultActive = "Home" }: NavBar
                 onClick={(e) => {
                   e.preventDefault()
                   setActiveTab(item.name)
+                  isClickScrolling.current = true
                   const target = document.querySelector(item.url)
                   if (target) {
                     target.scrollIntoView({ behavior: "smooth" })
                   }
+                  setTimeout(() => { isClickScrolling.current = false }, 1000)
                 }}
                 onMouseEnter={() => setHoveredTab(item.name)}
                 onMouseLeave={() => setHoveredTab(null)}
