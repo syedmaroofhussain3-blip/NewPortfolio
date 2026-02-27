@@ -5,17 +5,14 @@ import { motion } from 'framer-motion';
 import { LogOut, Shield } from 'lucide-react';
 
 const Admin = () => {
-  const { user, isAdmin, loading, signOut } = useAuth();
+  const { isAdmin, loading, signOut } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!loading && !user) {
+    if (!loading && !isAdmin) {
       navigate('/login');
     }
-    if (!loading && user && !isAdmin) {
-      navigate('/');
-    }
-  }, [user, isAdmin, loading, navigate]);
+  }, [isAdmin, loading, navigate]);
 
   if (loading) {
     return (
@@ -25,10 +22,10 @@ const Admin = () => {
     );
   }
 
-  if (!user || !isAdmin) return null;
+  if (!isAdmin) return null;
 
-  const handleSignOut = async () => {
-    await signOut();
+  const handleSignOut = () => {
+    signOut();
     navigate('/');
   };
 
@@ -56,7 +53,7 @@ const Admin = () => {
           animate={{ opacity: 1, y: 0 }}
         >
           <p className="text-muted-foreground font-mono mb-8">
-            Welcome, {user.email}. Manage your portfolio content below.
+            Welcome, Admin. Manage your portfolio content below.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
