@@ -5,18 +5,18 @@ import { Calendar, Gamepad2 } from "lucide-react";
 
 const projects = [
   {
-    title: "University Event Platform",
-    description:
-      "A full-stack platform for managing university events — from registration to live updates. Built to streamline campus event coordination for students and organizers.",
-    href: "#",
-    icon: <Calendar size={20} className="text-foreground" />,
-  },
-  {
     title: "SoloRank",
     description:
-      "A competitive ranking system that tracks individual performance across challenges. Designed for gamified learning and personal progress tracking.",
-    href: "#",
+      "A gamified self-improvement mobile app inspired by Solo Leveling. Transform real-life tasks into RPG-style Quests across Study, Fitness, Coding, Money & Social — earn XP, Gold, and level up from 1 to 100.",
+    href: "https://quest-star-rise.lovable.app",
     icon: <Gamepad2 size={20} className="text-foreground" />,
+  },
+  {
+    title: "University Hub",
+    description:
+      "A full-stack platform for managing university events — from registration to live updates. Built to streamline campus event coordination for students and organizers.",
+    href: "https://syedmaroofhussain3-blip.github.io/university-hub/",
+    icon: <Calendar size={20} className="text-foreground" />,
   },
 ];
 
