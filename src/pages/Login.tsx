@@ -9,14 +9,15 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const { signIn } = useAuth();
+  const [isSignUp, setIsSignUp] = useState(false);
+  const { signIn, signUp } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setLoading(true);
-    const { error } = await signIn(email, password);
+    const { error } = isSignUp ? await signUp(email, password) : await signIn(email, password);
     if (error) {
       setError(error.message);
       setLoading(false);
@@ -41,8 +42,8 @@ const Login = () => {
         </button>
 
         <div className="rounded-2xl bg-card/50 backdrop-blur-md border border-border/30 p-8">
-          <h1 className="text-2xl font-bold font-mono text-foreground mb-2">Admin Login</h1>
-          <p className="text-muted-foreground text-sm mb-6">Sign in to manage your portfolio</p>
+          <h1 className="text-2xl font-bold font-mono text-foreground mb-2">{isSignUp ? 'Create Account' : 'Admin Login'}</h1>
+          <p className="text-muted-foreground text-sm mb-6">{isSignUp ? 'Sign up to get started' : 'Sign in to manage your portfolio'}</p>
 
           {error && (
             <div className="bg-destructive/10 border border-destructive/30 text-destructive rounded-lg p-3 mb-4 text-sm">
@@ -86,9 +87,19 @@ const Login = () => {
               disabled={loading}
               className="w-full bg-primary text-primary-foreground font-mono font-medium rounded-lg py-2.5 hover:opacity-90 transition-opacity disabled:opacity-50"
             >
-              {loading ? 'Signing in...' : 'Sign In'}
+              {loading ? (isSignUp ? 'Creating account...' : 'Signing in...') : (isSignUp ? 'Sign Up' : 'Sign In')}
             </button>
           </form>
+
+          <p className="text-center text-sm text-muted-foreground mt-4">
+            {isSignUp ? 'Already have an account?' : "Don't have an account?"}{' '}
+            <button
+              onClick={() => { setIsSignUp(!isSignUp); setError(''); }}
+              className="text-primary hover:underline font-medium"
+            >
+              {isSignUp ? 'Sign In' : 'Sign Up'}
+            </button>
+          </p>
         </div>
       </motion.div>
     </div>
