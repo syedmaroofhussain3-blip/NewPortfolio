@@ -2,32 +2,19 @@ import React from "react";
 import { motion, type Variants } from "framer-motion";
 import { Cloud, Zap, Code, Github, Linkedin, Mail, Instagram } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { getPortfolioData } from "@/data/portfolioStore";
+import { usePortfolioSection } from "@/hooks/usePortfolioSection";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, delay: 0.2 + i * 0.15 },
-  }),
+  visible: (i: number) => ({ opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.2 + i * 0.15 } }),
 };
 
-const iconMap: Record<string, React.ElementType> = {
-  GitHub: Github,
-  LinkedIn: Linkedin,
-  Email: Mail,
-  Instagram: Instagram,
-};
-
-const focusIconMap: Record<string, React.ElementType> = {
-  "Cloud Infrastructure": Cloud,
-  "Rapid Prototyping": Zap,
-  "Core Engineering": Code,
-};
+const iconMap: Record<string, React.ElementType> = { GitHub: Github, LinkedIn: Linkedin, Email: Mail, Instagram: Instagram };
+const focusIconMap: Record<string, React.ElementType> = { "Cloud Infrastructure": Cloud, "Rapid Prototyping": Zap, "Core Engineering": Code };
 
 export const AboutSection: React.FC = () => {
-  const data = getPortfolioData().about;
+  const { data, loading } = usePortfolioSection("about");
+  if (loading || !data) return null;
 
   return (
     <section id="about" className="relative w-full py-24 md:py-32 overflow-hidden">
@@ -42,9 +29,7 @@ export const AboutSection: React.FC = () => {
 
         <motion.div custom={1} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="rounded-2xl border border-border/20 bg-background/30 backdrop-blur-md p-6 md:p-8 mb-12">
           {data.bio.map((paragraph, i) => (
-            <p key={i} className={cn("text-base md:text-lg text-muted-foreground leading-relaxed", i > 0 && "mt-4")}>
-              {paragraph}
-            </p>
+            <p key={i} className={cn("text-base md:text-lg text-muted-foreground leading-relaxed", i > 0 && "mt-4")}>{paragraph}</p>
           ))}
         </motion.div>
 
@@ -54,9 +39,7 @@ export const AboutSection: React.FC = () => {
             return (
               <motion.div key={area.title} custom={i + 2} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
                 className="rounded-2xl border border-border/20 bg-background/30 backdrop-blur-md p-6 text-center hover:border-primary/40 transition-colors duration-300">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
-                  <Icon className="w-6 h-6 text-primary" />
-                </div>
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4"><Icon className="w-6 h-6 text-primary" /></div>
                 <h3 className="text-lg font-semibold font-mono text-foreground mb-2">{area.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{area.description}</p>
               </motion.div>
@@ -70,8 +53,7 @@ export const AboutSection: React.FC = () => {
             return (
               <a key={link.label} href={link.href} aria-label={link.label}
                 className={cn("flex items-center gap-2 rounded-full border border-border/20 px-6 py-3", "text-sm font-semibold text-muted-foreground", "transition-all duration-200 hover:scale-105 hover:border-primary/50 hover:text-foreground", "bg-background/30 backdrop-blur-md shadow-lg")}>
-                <Icon size={18} />
-                <span>{link.label}</span>
+                <Icon size={18} /><span>{link.label}</span>
               </a>
             );
           })}
