@@ -13,26 +13,28 @@ const fadeUp: Variants = {
   }),
 };
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const cardItems: CardStackItem[] = [
   {
     id: 1,
     title: "2nd Position – Code Sprint Hackathon",
     description: "Tech Mirai Fiesta 2026, Integral University (Feb 5–7, 2026)",
-    imageSrc: "/images/code-sprint.png",
+    imageSrc: `${baseUrl}images/code-sprint.png`,
     tag: "Achievement",
   },
   {
     id: 2,
     title: "Data Visualization with Cognos Dashboard Embedded",
     description: "Issued by IBM Skills Network & Integral University (Feb 21, 2026)",
-    imageSrc: "/images/ibm-cognos.png",
+    imageSrc: `${baseUrl}images/ibm-cognos.png`,
     tag: "Certification",
   },
   {
     id: 3,
     title: "Build Your Own Chatbot",
     description: "Issued by IBM & Integral University (Feb 21, 2026)",
-    imageSrc: "/images/ibm-chatbot.png",
+    imageSrc: `${baseUrl}images/ibm-chatbot.png`,
     tag: "Certification",
   },
 ];
