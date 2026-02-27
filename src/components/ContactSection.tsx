@@ -217,12 +217,9 @@ export const ContactSection: React.FC = () => {
 
       {/* Footer */}
       <footer className="relative z-10 w-full border-t border-border/10 bg-background/40 backdrop-blur-md py-8">
-        <div className="container mx-auto px-4 md:px-6 max-w-4xl flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="container mx-auto px-4 md:px-6 max-w-4xl flex items-center justify-center">
           <p className="text-sm text-muted-foreground font-mono">
             © {new Date().getFullYear()} Syed Maroof Hussain
-          </p>
-          <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Built with <Heart className="w-3.5 h-3.5 text-primary fill-primary" /> using Lovable
           </p>
         </div>
       </footer>
