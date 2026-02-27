@@ -1,18 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Redirecting...</title>
-    <script type="text/javascript">
-      var base = '/NewPortfolio/';
-      var path = window.location.pathname;
-      if (path.startsWith(base)) {
-        path = path.slice(base.length - 1);
-      }
-      window.location.replace(base + '?' + path + window.location.search + window.location.hash);
+    <script>
+      window.location.replace('/NewPortfolio/');
     </script>
   </head>
-  <body>
-    Redirecting...
-  </body>
+  <body>Redirecting...</body>
 </html>
