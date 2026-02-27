@@ -22,7 +22,7 @@ const navItems = [
 ];
 
 const Index = () => {
-  const { user } = useAuth();
+  const { isAdmin } = useAuth();
   const navigate = useNavigate();
 
   return (
@@ -34,11 +34,11 @@ const Index = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
-        onClick={() => navigate(user ? '/admin' : '/login')}
+        onClick={() => navigate(isAdmin ? '/admin' : '/login')}
         className="fixed top-8 right-6 z-[10000] flex items-center gap-2 px-4 py-2 rounded-full bg-background/50 backdrop-blur-lg border border-border/30 text-sm font-mono text-muted-foreground hover:text-foreground transition-colors"
       >
         <LogIn className="w-4 h-4" />
-        <span className="hidden sm:inline">{user ? 'Dashboard' : 'Login'}</span>
+        <span className="hidden sm:inline">{isAdmin ? 'Dashboard' : 'Login'}</span>
       </motion.button>
 
       {/* Hero 3D Background - Fixed */}
