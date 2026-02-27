@@ -43,7 +43,7 @@ export const AboutSection: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative w-full py-24 md:py-32 bg-background overflow-hidden"
+      className="relative w-full py-24 md:py-32 bg-background/30 backdrop-blur-md overflow-hidden"
     >
       {/* Subtle background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
