@@ -158,14 +158,14 @@ OrbitingSkill.displayName = 'OrbitingSkill';
 const GlowingOrbitPath = memo(({ radius, glowColor = 'cyan', animationDelay = 0 }: GlowingOrbitPathProps) => {
   const glowColors = {
     cyan: {
-      primary: 'rgba(6, 182, 212, 0.4)',
-      secondary: 'rgba(6, 182, 212, 0.2)',
-      border: 'rgba(6, 182, 212, 0.3)'
+      primary: 'rgba(160, 160, 160, 0.25)',
+      secondary: 'rgba(160, 160, 160, 0.1)',
+      border: 'rgba(200, 200, 200, 0.15)'
     },
     purple: {
-      primary: 'rgba(147, 51, 234, 0.4)',
-      secondary: 'rgba(147, 51, 234, 0.2)',
-      border: 'rgba(147, 51, 234, 0.3)'
+      primary: 'rgba(147, 51, 234, 0.3)',
+      secondary: 'rgba(147, 51, 234, 0.12)',
+      border: 'rgba(147, 51, 234, 0.2)'
     }
   };
 
@@ -236,13 +236,13 @@ export default function OrbitingSkills() {
       >
         {/* Central "Code" Icon */}
         <div className="w-20 h-20 bg-gradient-to-br from-muted to-background rounded-full flex items-center justify-center z-10 relative shadow-2xl">
-          <div className="absolute inset-0 rounded-full bg-cyan-500/30 blur-xl animate-pulse"></div>
-          <div className="absolute inset-0 rounded-full bg-purple-500/20 blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute inset-0 rounded-full bg-white/10 blur-xl animate-pulse"></div>
+          <div className="absolute inset-0 rounded-full bg-purple-500/15 blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
           <div className="relative z-10">
             <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="url(#skill-gradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <defs>
                 <linearGradient id="skill-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#06B6D4" />
+                  <stop offset="0%" stopColor="#a0a0a0" />
                   <stop offset="100%" stopColor="#9333EA" />
                 </linearGradient>
               </defs>
