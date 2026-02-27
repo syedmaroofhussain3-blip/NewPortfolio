@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, type Variants } from "framer-motion";
-import { Mail, Send, Github, Linkedin, MapPin, Phone, Heart } from "lucide-react";
+import { Mail, Send, Github, Linkedin, MapPin, Instagram, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 
@@ -14,14 +14,15 @@ const fadeUp: Variants = {
 };
 
 const socialLinks = [
-  { href: "https://github.com/", label: "GitHub", icon: Github },
-  { href: "https://linkedin.com/in/", label: "LinkedIn", icon: Linkedin },
-  { href: "mailto:contact@example.com", label: "Email", icon: Mail },
+  { href: "https://github.com/syedmaroofhussain3-blip", label: "GitHub", icon: Github },
+  { href: "#", label: "LinkedIn", icon: Linkedin },
+  { href: "mailto:syedmaroofhussain3@gmail.com", label: "Email", icon: Mail },
+  { href: "https://www.instagram.com/syed_maroof19?igsh=MW9mZDBid3JyNzVvcw==", label: "Instagram", icon: Instagram },
 ];
 
 const contactInfo = [
   { icon: MapPin, text: "Lucknow, India" },
-  { icon: Mail, text: "contact@example.com" },
+  { icon: Mail, text: "syedmaroofhussain3@gmail.com" },
 ];
 
 export const ContactSection: React.FC = () => {

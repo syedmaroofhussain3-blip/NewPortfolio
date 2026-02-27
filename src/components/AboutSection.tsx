@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, type Variants } from "framer-motion";
-import { Cloud, Zap, Code, Github, Linkedin, Mail } from "lucide-react";
+import { Cloud, Zap, Code, Github, Linkedin, Mail, Instagram } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const fadeUp: Variants = {
@@ -34,9 +34,10 @@ const focusAreas = [
 ];
 
 const socialLinks = [
-  { href: "#", label: "GitHub", icon: Github },
+  { href: "https://github.com/syedmaroofhussain3-blip", label: "GitHub", icon: Github },
   { href: "#", label: "LinkedIn", icon: Linkedin },
-  { href: "#", label: "Email", icon: Mail },
+  { href: "mailto:syedmaroofhussain3@gmail.com", label: "Email", icon: Mail },
+  { href: "https://www.instagram.com/syed_maroof19?igsh=MW9mZDBid3JyNzVvcw==", label: "Instagram", icon: Instagram },
 ];
 
 export const AboutSection: React.FC = () => {
