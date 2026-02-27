@@ -4,6 +4,7 @@ import { AnimeNavBar } from "@/components/ui/anime-navbar";
 import { AboutSection } from "@/components/AboutSection";
 import { SkillsSection } from "@/components/SkillsSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
+import { CertificationsSection } from "@/components/CertificationsSection";
 import { Home, User, FolderOpen, Wrench, Award, Mail, FileDown } from "lucide-react";
 
 const navItems = [
@@ -61,6 +62,7 @@ const Index = () => {
         <AboutSection />
         <SkillsSection />
         <ProjectsSection />
+        <CertificationsSection />
       </div>
     </div>
   );
