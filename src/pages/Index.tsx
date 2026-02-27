@@ -19,8 +19,8 @@ const Index = () => {
     <div className="relative">
       <AnimeNavBar items={navItems} defaultActive="Home" />
 
-      {/* Hero Section */}
-      <section id="home" className="relative h-screen w-full bg-background overflow-hidden">
+      {/* Hero Section - Fixed background */}
+      <section id="home" className="fixed inset-0 h-screen w-full bg-background overflow-hidden z-0">
         <SplineScene
           scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
           className="w-full h-full"
@@ -54,8 +54,13 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section */}
-      <AboutSection />
+      {/* Spacer for fixed hero */}
+      <div className="h-screen" />
+
+      {/* Scrollable content */}
+      <div className="relative z-10">
+        <AboutSection />
+      </div>
     </div>
   );
 };
