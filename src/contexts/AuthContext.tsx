@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, ReactNode } from 'react';
 
-const ADMIN_USERNAME = 'admin';
+const ADMIN_USERNAME = 'syedmaroofhussain';
 const ADMIN_PASSWORD = 'sahil#72755';
 
 interface AuthContextType {
