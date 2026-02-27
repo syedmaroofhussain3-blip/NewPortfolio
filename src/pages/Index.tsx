@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { AnimeNavBar } from "@/components/ui/anime-navbar";
 import { AboutSection } from "@/components/AboutSection";
 import { SkillsSection } from "@/components/SkillsSection";
+import { ProjectsSection } from "@/components/ProjectsSection";
 import { Home, User, FolderOpen, Wrench, Award, Mail, FileDown } from "lucide-react";
 
 const navItems = [
@@ -59,6 +60,7 @@ const Index = () => {
       <div className="relative z-10">
         <AboutSection />
         <SkillsSection />
+        <ProjectsSection />
       </div>
     </div>
   );
