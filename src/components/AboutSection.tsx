@@ -43,10 +43,8 @@ export const AboutSection: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative w-full py-24 md:py-32 bg-background/30 backdrop-blur-md overflow-hidden"
+      className="relative w-full py-24 md:py-32 overflow-hidden"
     >
-      {/* Subtle background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 container mx-auto px-4 md:px-6 max-w-4xl">
         {/* Avatar + Heading */}
@@ -59,7 +57,7 @@ export const AboutSection: React.FC = () => {
           className="flex flex-col items-center text-center mb-12"
         >
           <div className="relative mb-6">
-            <span className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary via-primary/60 to-accent opacity-50 blur-lg" />
+            <span className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary via-primary/60 to-accent opacity-50 blur-lg backdrop-blur-md" />
             <img
               src="https://api.dicebear.com/8.x/lorelei-neutral/svg?seed=Maroof"
               alt="Syed Maroof Hussain avatar"
@@ -78,7 +76,7 @@ export const AboutSection: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="rounded-2xl border border-border bg-card/60 backdrop-blur-sm p-6 md:p-8 mb-12"
+          className="rounded-2xl border border-border/20 bg-background/30 backdrop-blur-md p-6 md:p-8 mb-12"
         >
           <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
             I am a product-focused engineering student (B.Tech CCAI) with a track record of
@@ -103,7 +101,7 @@ export const AboutSection: React.FC = () => {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="rounded-2xl border border-border bg-card/40 backdrop-blur-sm p-6 text-center hover:border-primary/40 transition-colors duration-300"
+                className="rounded-2xl border border-border/20 bg-background/30 backdrop-blur-md p-6 text-center hover:border-primary/40 transition-colors duration-300"
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
                   <Icon className="w-6 h-6 text-primary" />
@@ -136,10 +134,10 @@ export const AboutSection: React.FC = () => {
                 href={link.href}
                 aria-label={link.label}
                 className={cn(
-                  "flex items-center gap-2 rounded-full border border-border px-6 py-3",
+                  "flex items-center gap-2 rounded-full border border-border/20 px-6 py-3",
                   "text-sm font-semibold text-muted-foreground",
                   "transition-all duration-200 hover:scale-105 hover:border-primary/50 hover:text-foreground",
-                  "bg-card/40 backdrop-blur-sm shadow-lg"
+                  "bg-background/30 backdrop-blur-md shadow-lg"
                 )}
               >
                 <Icon size={18} />
