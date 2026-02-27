@@ -6,6 +6,7 @@ import { SkillsSection } from "@/components/SkillsSection";
 import { ProjectsSection } from "@/components/ProjectsSection";
 import { CertificationsSection } from "@/components/CertificationsSection";
 import { ContactSection } from "@/components/ContactSection";
+import { ResumeSection } from "@/components/ResumeSection";
 import { Home, User, FolderOpen, Wrench, Award, Mail, FileDown } from "lucide-react";
 
 const navItems = [
@@ -14,8 +15,8 @@ const navItems = [
   { name: "Skills", url: "#skills", icon: Wrench },
   { name: "Projects", url: "#projects", icon: FolderOpen },
   { name: "Certifications", url: "#certifications", icon: Award },
-  { name: "Contact", url: "#contact", icon: Mail },
   { name: "Resume", url: "#resume", icon: FileDown },
+  { name: "Contact", url: "#contact", icon: Mail },
 ];
 
 const Index = () => {
@@ -64,6 +65,7 @@ const Index = () => {
         <SkillsSection />
         <ProjectsSection />
         <CertificationsSection />
+        <ResumeSection />
         <ContactSection />
       </div>
     </div>
