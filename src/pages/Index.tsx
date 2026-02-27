@@ -7,7 +7,9 @@ import { ProjectsSection } from "@/components/ProjectsSection";
 import { CertificationsSection } from "@/components/CertificationsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { ResumeSection } from "@/components/ResumeSection";
-import { Home, User, FolderOpen, Wrench, Award, Mail, FileDown } from "lucide-react";
+import { Home, User, FolderOpen, Wrench, Award, Mail, FileDown, LogIn } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const navItems = [
   { name: "Home", url: "#home", icon: Home },
@@ -20,9 +22,24 @@ const navItems = [
 ];
 
 const Index = () => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
   return (
     <div className="relative">
       <AnimeNavBar items={navItems} defaultActive="Home" />
+
+      {/* Login Button */}
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        onClick={() => navigate(user ? '/admin' : '/login')}
+        className="fixed top-8 right-6 z-[10000] flex items-center gap-2 px-4 py-2 rounded-full bg-background/50 backdrop-blur-lg border border-border/30 text-sm font-mono text-muted-foreground hover:text-foreground transition-colors"
+      >
+        <LogIn className="w-4 h-4" />
+        <span className="hidden sm:inline">{user ? 'Dashboard' : 'Login'}</span>
+      </motion.button>
 
       {/* Hero 3D Background - Fixed */}
       <div className="fixed inset-0 h-screen w-full bg-background overflow-hidden z-0">
