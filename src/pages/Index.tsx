@@ -1,6 +1,7 @@
 import { SplineScene } from "@/components/ui/splite";
 import { motion } from "framer-motion";
 import { AnimeNavBar } from "@/components/ui/anime-navbar";
+import { AboutSection } from "@/components/AboutSection";
 import { Home, User, FolderOpen, Wrench, Award, Mail, FileDown } from "lucide-react";
 
 const navItems = [
@@ -52,6 +53,9 @@ const Index = () => {
           </motion.p>
         </div>
       </section>
+
+      {/* About Section */}
+      <AboutSection />
     </div>
   );
 };
